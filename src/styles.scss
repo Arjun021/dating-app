@@ -16,7 +16,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100vh;
-  width: 100vw;
+  // width: 100vw;
 }
 
 .h-100 {
@@ -30,4 +30,36 @@ body {
 .row {
   flex-wrap: wrap;
   display: flex !important;
+}
+
+
+
+.message-field {
+  display: flex;
+  flex-direction: column;
+  width: 32.313rem;
+  align-items: flex-end;
+  margin-top: 2.313rem;
+  label {
+    display: block;
+    width: 100%;
+    color: #8530D1;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .mat-mdc-form-field {
+    width: 100%;
+  }
+  .mat-mdc-text-field-wrapper {
+    background-color: transparent;
+    border: 1px solid #E4E4E4;
+    border-radius: 1.125rem;
+
+  }
+  .mdc-button {
+    width: 6.375rem;
+    border-radius: 1.688rem;
+    float: right;
+  }
 }

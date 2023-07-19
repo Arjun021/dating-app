@@ -5,12 +5,14 @@ import { SharedModule } from '../shared/shared.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { ProfileListingComponent } from './profile-listing/profile-listing.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
     PagesComponent,
     AllProfilesComponent,
-    ProfileListingComponent
+    ProfileListingComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     CommonModule,
