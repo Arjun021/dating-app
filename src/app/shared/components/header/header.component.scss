@@ -1,5 +1,9 @@
 .header-container {
   padding: 1rem 0 1rem 2.5rem;
+  @media screen and (max-width: 767px){
+    padding: 1rem 0 1rem 1rem;
+    margin-bottom: 1.5rem;
+  }
   justify-content: space-between;
   align-items: center;
   background: #EBD6FF;
@@ -18,10 +22,17 @@
     }
   }
   .right-section {
-    padding-right: 7rem;
+
+    @media screen and (min-width: 768px){
+      padding-right: 7rem;
+     }
     ul {
       display: flex;
       list-style: none;
+      @media screen and (max-width: 767px){
+       padding: 0px;
+       flex-wrap: wrap;
+      }
       li {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -53,3 +64,5 @@
     }
   }
 }
+
+
