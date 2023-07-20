@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Profiles } from 'src/app/shared/models/profile.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 
@@ -9,7 +11,7 @@ import { CommonService } from 'src/app/shared/services/common.service';
 })
 export class ProfileListingComponent implements OnInit {
 
-  profileList: any = [];
+  profileList: Profiles[] = [];
 
   favoriteList: any = [];
 
@@ -17,7 +19,8 @@ export class ProfileListingComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private commonService: CommonService
+    private commonService: CommonService,
+    private router: Router
   ) {
   }
 
@@ -68,9 +71,9 @@ export class ProfileListingComponent implements OnInit {
   /**
    * Update favorite
    */
-  async updateFavorite(data: any) {
+  async updateFavorite(data: Profiles) {
     try {
-      const property = {
+      const property: any = {
         profileId: data.id
       }
       const favoriteResult = data.is_favorite ? await this.apiService.deleteFavorite(property) : await this.apiService.addToFavorite(property);
@@ -82,6 +85,10 @@ export class ProfileListingComponent implements OnInit {
     } catch(e) {
       this.commonService.showErrorToaster('Error', 'Something went wrong');
     }
+  }
+
+  openProfileDetails(data: Profiles) {
+    this.router.navigate(['profile-details', data.id])
   }
 
 }

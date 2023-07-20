@@ -13,12 +13,14 @@ import { HttpIntercepterService } from './shared/services/http-intercepter.servi
 import { SharedModule } from './shared/shared.module';
 import { ProfileListingComponent } from './pages/profile-listing/profile-listing.component';
 import { AllProfilesComponent } from './pages/all-profiles/all-profiles.component';
+import { ProfileDetailsComponent } from './pages/profile-details/profile-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AllProfilesComponent,
-    ProfileListingComponent
+    ProfileListingComponent,
+    ProfileDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -84,4 +84,18 @@ export class ApiService {
       return Promise.reject(error);
     }
   }
+
+  /**
+   * Get user details
+   */
+  async getUserDetails(profileId: string | null) {
+    try {
+      const result = await (<any>(
+        this.apiInterfaceService.get(AppConfig.PROFILES + '/' + profileId, false).toPromise()
+      ));
+      return result;
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  }
 }

@@ -1,0 +1,137 @@
+<div class="breadcrumbs-wrapper">
+  <ul>
+    <li>
+      <a [routerLink]="['/']"><img src="../../../assets/home.svg" /></a>
+      <span class="separatorSpeak">
+        <img src="../../../assets/chevron-right.svg" />
+      </span>
+    </li>
+    <li><p>Members Details</p></li>
+  </ul>
+</div>
+<section class="members-betails">
+  <div class="members-wrap">
+    <div class="row">
+      <div class="content-info">
+        <div class="details">
+          <div class="basic-info">
+            <h2>{{ userDetails?.name }}</h2>
+            <span>@{{ userDetails?.city }}</span>
+          </div>
+          <div class="about-info">
+            <strong>About</strong>
+            <p>
+              A good listener. I love Having a good talk to know each other’s
+              side.
+            </p>
+          </div>
+          <div class="interest-info">
+            <ul>
+              <li>
+                <span><img src="../../../assets/Interest-icon.svg" /></span>
+                Nature
+              </li>
+              <li>
+                <span><img src="../../../assets/travel-icon.svg" /></span>
+                Travel
+              </li>
+              <li>
+                <span><img src="../../../assets/writing-icon.svg" /></span>
+                Writing
+              </li>
+              <li>
+                <span><img src="../../../assets/movie-icon.svg" /></span> Movie
+              </li>
+              <li>
+                <span><img src="../../../assets/gym-fitness-icon.svg" /></span>
+                Gym & Fitness
+              </li>
+              <li>
+                <span><img src="../../../assets/football-icon.svg" /></span>
+                Football
+              </li>
+              <li>
+                <span><img src="../../../assets/music-icon.svg" /></span> Music
+              </li>
+            </ul>
+          </div>
+          <div class="user-info">
+            <ul>
+              <li>
+                <img src="../../../assets/female-icon.svg" />
+                <div class="box-info">
+                  <span>Gender</span>
+                  <strong>Female</strong>
+                </div>
+              </li>
+              <li>
+                <img src="../../../assets/age-icon.svg" />
+                <div class="box-info">
+                  <span>Age </span>
+                  <strong
+                    >{{ userDetails?.age }} years<br />
+                    old</strong
+                  >
+                </div>
+              </li>
+              <li>
+                <img src="../../../assets/hight-icon.svg" />
+                <div class="box-info">
+                  <span>Hight </span>
+                  <strong>163 cm</strong>
+                </div>
+              </li>
+              <li>
+                <img src="../../../assets/speak-icon.svg" />
+                <div class="box-info">
+                  <span>RelationShip </span>
+                  <strong>English <br />German</strong>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="img-info">
+        <div class="image-section">
+          <div class="image-container">
+            <img [src]="userDetails?.avatar" />
+          </div>
+          <div class="button-section">
+            <button
+              class="start-button icon-button-small"
+              mat-mini-fab
+              color="primary"
+            >
+              <mat-icon>star_border</mat-icon>
+            </button>
+            <button
+              class="fav-button"
+              mat-mini-fab
+              color="secondary"
+              (click)="updateFavorite()"
+            >
+              <mat-icon [ngClass]="{ favorite: userDetails?.is_favorite }">{{
+                userDetails?.is_favorite ? "favorite" : "favorite_border"
+              }}</mat-icon>
+            </button>
+            <button
+              class="thumbs-button icon-button-small"
+              mat-mini-fab
+              color="primary"
+            >
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="message-field">
+          <label>Message</label>
+          <mat-form-field>
+            <textarea matInput placeholder="enter message"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
