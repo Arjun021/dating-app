@@ -11,10 +11,14 @@ import {
 } from '@angular/common/http';
 import { HttpIntercepterService } from './shared/services/http-intercepter.service';
 import { SharedModule } from './shared/shared.module';
+import { ProfileListingComponent } from './pages/profile-listing/profile-listing.component';
+import { AllProfilesComponent } from './pages/all-profiles/all-profiles.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AllProfilesComponent,
+    ProfileListingComponent
   ],
   imports: [
     BrowserModule,

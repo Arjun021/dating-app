@@ -37,4 +37,20 @@ export class CommonService {
     });
     this.toastr.toastrConfig.preventDuplicates = true;
   }
+
+   // Set localstorage data
+   setLocalStorageData(key:any, value:any) {
+    const encode = JSON.stringify(value);
+    localStorage.setItem(key, window.btoa(encode));
+  }
+
+  // Get localstorage data
+  getLocalStorageData(key:any) {
+  if (localStorage.getItem(key)) {
+    const decode = window.atob(localStorage.getItem(key)!);
+    return JSON.parse(decode);
+    } else {
+    return null;
+    }
+  }
 }

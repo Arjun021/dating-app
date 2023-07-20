@@ -139,12 +139,14 @@ export class ApiInterfaceService {
     path: string,
     requireAuth = false,
     params?: any,
+    body?: any,
     withCredentials?: boolean
   ) {
     return this.http.delete(environment.baseUrl + path, {
       params,
       headers: new HttpHeaders(),
       withCredentials,
+      body
     });
   }
 }

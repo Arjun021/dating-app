@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AllProfilesComponent } from './pages/all-profiles/all-profiles.component';
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/pages', pathMatch: 'full'
+    path: '', redirectTo: '/all-profiles', pathMatch: 'full'
   },
   {
-    path: 'pages',
-    loadChildren: () =>
-      import('./pages/pages.module').then((m) => m.PagesModule),
+    path: 'all-profiles',
+    component: AllProfilesComponent
 
   },
 ];

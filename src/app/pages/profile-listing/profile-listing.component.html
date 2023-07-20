@@ -3,30 +3,57 @@
   <p class="heading-subtext">Please find your perfect match</p>
   <div class="filter-section row">
     <div class="label-group">
-      <img src="../../../assets/people-group.svg" class="group-image">
-       <span>Recent members</span>
+      <img src="../../../assets/people-group.svg" class="group-image" />
+      <span>Recent members</span>
     </div>
   </div>
   <div class="listing-section row">
-    <mat-card class="card-container">
+    <mat-card class="card-container" *ngFor="let item of profileList">
       <mat-card-content>
-        <div class="image-content">
-          <img mat-card-lg-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+        <div class="image-container">
+          <div class="image-content">
+            <img
+              mat-card-lg-image
+              [src]="item?.avatar"
+            />
+          </div>
+          <div class="image-buttons">
+            <button
+              class="start-button icon-button-small"
+              mat-mini-fab
+              color="primary"
+            >
+              <mat-icon>star_border</mat-icon>
+            </button>
+            <button class="fav-button" mat-mini-fab color="secondary" (click)="updateFavorite(item)">
+              <mat-icon [ngClass]="{'favorite': item.is_favorite}">{{item.is_favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
+            </button>
+            <button
+              class="thumbs-button icon-button-small"
+              mat-mini-fab
+              color="primary"
+            >
+              <mat-icon>thumb_up</mat-icon>
+            </button>
+          </div>
         </div>
-        <div class="image-buttons">
-          <button class="start-button" mat-mini-fab color="primary">
-            <mat-icon>star_border</mat-icon>
+        <div class="name-template">
+          <div>
+            <p class="user-name">{{item.name}}</p>
+          <p class="user-sublabel">@{{item.city}}</p>
+          </div>
+          <div>
+            <button
+            class="thumbs-button"
+            mat-mini-fab
+            color="primary"
+          >
+            <mat-icon>arrow_forward</mat-icon>
           </button>
-          <button class="fav-button" mat-mini-fab color="primary">
-            <mat-icon>favorite</mat-icon>
-          </button>
-          <button class="thumbs-button" mat-mini-fab color="primary">
-            <mat-icon>thumb_up</mat-icon>
-          </button>
+          </div>
         </div>
-
-       <h5>Anna Mirsolav</h5>
       </mat-card-content>
     </mat-card>
+
   </div>
 </div>
