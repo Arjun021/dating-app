@@ -9,6 +9,8 @@ import { CommonService } from 'src/app/shared/services/common.service';
 })
 export class AllProfilesComponent implements OnInit {
 
+  userId: string | null = null;
+
   constructor(
     private apiService: ApiService,
     private commonService: CommonService
@@ -27,6 +29,7 @@ export class AllProfilesComponent implements OnInit {
     try {
       const result = await this.apiService.getUserAccount();
       if (result) {
+        this.userId = result.UID;
         this.commonService.setLocalStorageData('user', result);
       }
     } catch(e) {

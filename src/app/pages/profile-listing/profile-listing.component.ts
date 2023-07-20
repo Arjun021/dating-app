@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Profiles } from 'src/app/shared/models/profile.model';
 import { ApiService } from 'src/app/shared/services/api.service';
@@ -15,7 +15,7 @@ export class ProfileListingComponent implements OnInit {
 
   favoriteList: any = [];
 
-  userId: string = '';
+  @Input() userId = '';
 
   selectedProfiles: Profiles[] = [];
 
@@ -27,9 +27,6 @@ export class ProfileListingComponent implements OnInit {
   }
 
   async ngOnInit() {
-      const userData = this.commonService.getLocalStorageData('user');
-      this.userId = userData.UID;
-      console.log(this.userId);
       Promise.all([
         await this.getFavorits(),
         await this.getAllProfiles()

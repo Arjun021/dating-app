@@ -10,4 +10,8 @@
 <img src="../../../assets/banner-img.svg"/>
 </div>
 </div>
-<app-profile-listing></app-profile-listing>
+<ng-container *ngIf="userId">
+  <app-profile-listing [userId]="userId"></app-profile-listing>
+</ng-container>
+
+

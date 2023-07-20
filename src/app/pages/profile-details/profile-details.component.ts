@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Profiles } from 'src/app/shared/models/profile.model';
 import { ApiService } from 'src/app/shared/services/api.service';
 import { CommonService } from 'src/app/shared/services/common.service';
@@ -22,14 +22,21 @@ export class ProfileDetailsComponent implements OnInit{
   constructor(
     private activatedRoute: ActivatedRoute,
     private commonService: CommonService,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private router: Router
   ) {
     this.userId = this.activatedRoute.snapshot.paramMap.get('id');
+    const getUser = this.commonService.getLocalStorageData('user');
+    if (getUser) {
+      this.loggedInUserId = getUser.UID;
+    } else {
+      this.router.navigate(['/'])
+    }
+
   }
 
   async ngOnInit(): Promise<void> {
-    const getUser = this.commonService.getLocalStorageData('user');
-    this.loggedInUserId = getUser.UID;
+
     if (this.userId) {
       await this.getProfileDetails()
     }
