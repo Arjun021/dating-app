@@ -17,6 +17,8 @@ export class ProfileListingComponent implements OnInit {
 
   userId: string = '';
 
+  selectedProfiles: Profiles[] = [];
+
   constructor(
     private apiService: ApiService,
     private commonService: CommonService,
@@ -48,6 +50,7 @@ export class ProfileListingComponent implements OnInit {
             profile['is_favorite'] = true;
           }
         }
+        this.selectedProfiles = this.profileList;
       }
     } catch (e) {
       this.commonService.showErrorToaster('Error', 'Something went wrong');
@@ -77,7 +80,6 @@ export class ProfileListingComponent implements OnInit {
         profileId: data.id
       }
       const favoriteResult = data.is_favorite ? await this.apiService.deleteFavorite(property) : await this.apiService.addToFavorite(property);
-      console.log(favoriteResult)
       if (favoriteResult) {
         data.is_favorite = !data.is_favorite;
         this.commonService.showSuccessToaster('Success', favoriteResult.message)
@@ -87,8 +89,23 @@ export class ProfileListingComponent implements OnInit {
     }
   }
 
+  /**
+   * Open profile details screen
+   */
   openProfileDetails(data: Profiles) {
     this.router.navigate(['profile-details', data.id])
   }
+
+  /**
+   * Toggle between favorite and all profiles
+   */
+  onChangePreference(favoritesOnly: boolean) {
+    if (favoritesOnly) {
+      this.selectedProfiles = this.selectedProfiles.filter((value) => value.is_favorite)
+    } else {
+      this.selectedProfiles = this.profileList;
+    }
+  }
+
 
 }

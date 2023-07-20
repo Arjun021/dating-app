@@ -20,6 +20,9 @@ export class AllProfilesComponent implements OnInit {
       await this.getUserAccounts();
   }
 
+  /**
+   * Get user accounts
+   */
   async getUserAccounts(): Promise<void> {
     try {
       const result = await this.apiService.getUserAccount();

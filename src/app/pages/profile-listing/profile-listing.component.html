@@ -6,9 +6,12 @@
       <img src="../../../assets/people-group.svg" class="group-image" />
       <span>Recent members</span>
     </div>
+    <div>
+      <mat-checkbox class="example-margin" color="primary" (change)="onChangePreference($event.checked)">Favorites only !!</mat-checkbox>
+    </div>
   </div>
   <div class="listing-section row">
-    <mat-card class="card-container" *ngFor="let item of profileList">
+    <mat-card class="card-container" *ngFor="let item of selectedProfiles">
       <mat-card-content>
         <div class="image-container">
           <div class="image-content">

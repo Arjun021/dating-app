@@ -1,7 +1,7 @@
 .breadcrumbs-wrapper {
   padding: 1.875rem 2.5rem 0rem 2.5rem;
   @media screen and (max-width: 767px){
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
   }
   ul {
     padding: 0px;
@@ -50,6 +50,7 @@
             img {
               width: 100%;
               height: 100%;
+              object-fit: fill;
             }
           }
           .button-section {
@@ -130,7 +131,7 @@
               ul {
                 display: flex;
                 flex-wrap: wrap;
-                gap: 2.5rem;
+                gap: 1.5rem;
                 li {
                   height: 10.563rem;
                   max-width: 8.125rem;

@@ -1,23 +1,32 @@
 .banner-section {
- // height: calc(100vh - 20%);
   background-image: url('../../../assets/background-image.svg');
   background-repeat: no-repeat;
   background-size: cover;
-
+  padding: 0rem 2rem;
+  @media screen and (max-width: 767px){
+    padding: 2rem 1rem;
+  }
   .left-section {
     flex: 1;
     align-items: center;
     .text-container {
-      padding-left: 2rem;
+
       .welcome-text {
         font-size: 1.75rem;
         font-weight: bold;
+        line-height: 5.188rem;
       }
       .header-text {
         font-size: 3.875rem;
-        line-height: 4.5rem;
+        line-height: 5.188rem;
         color: #8530D1;
         font-weight: bold;
+        margin-bottom: 1.563rem;
+        @media screen and (max-width: 767px){
+          margin-top: 2rem;
+          font-size: 2rem;
+          line-height: normal;
+        }
       }
       .sub-text {
         font-size: 1rem;
@@ -25,10 +34,8 @@
     }
   }
   .right-section {
-    img {
-      padding-right: 2rem;
-      height: 40rem;
-      width: 40rem;
+    img{
+      width: 100%;
     }
   }
 }

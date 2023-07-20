@@ -2,7 +2,7 @@
   <ul>
     <li>
       <a [routerLink]="['/']"><img src="../../../assets/home.svg" /></a>
-      <span class="separatorSpeak">
+      <span class="separator">
         <img src="../../../assets/chevron-right.svg" />
       </span>
     </li>
@@ -15,8 +15,8 @@
       <div class="content-info">
         <div class="details">
           <div class="basic-info">
-            <h2>{{ userDetails?.name }}</h2>
-            <span>@{{ userDetails?.city }}</span>
+            <h2>{{ userDetails.name }}</h2>
+            <span>@{{ userDetails.city }}</span>
           </div>
           <div class="about-info">
             <strong>About</strong>
@@ -69,7 +69,7 @@
                 <div class="box-info">
                   <span>Age </span>
                   <strong
-                    >{{ userDetails?.age }} years<br />
+                    >{{ userDetails.age }} years<br />
                     old</strong
                   >
                 </div>
@@ -82,20 +82,22 @@
                 </div>
               </li>
               <li>
-                <img src="../../../assets/speak-icon.svg" />
+                <img src="../../../assets/relationship.svg" />
                 <div class="box-info">
-                  <span>RelationShip </span>
-                  <strong>English <br />German</strong>
+                  <span>Relationship </span>
+                  <strong>{{userDetails.relationship_status}}</strong>
                 </div>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="img-info">
+      <div class="img-info" >
         <div class="image-section">
           <div class="image-container">
-            <img [src]="userDetails?.avatar" />
+            <ng-container *ngIf="userDetails.avatar">
+              <img [src]="userDetails.avatar" />
+            </ng-container>
           </div>
           <div class="button-section">
             <button
@@ -111,8 +113,8 @@
               color="secondary"
               (click)="updateFavorite()"
             >
-              <mat-icon [ngClass]="{ favorite: userDetails?.is_favorite }">{{
-                userDetails?.is_favorite ? "favorite" : "favorite_border"
+              <mat-icon [ngClass]="{ favorite: userDetails.is_favorite }">{{
+                userDetails.is_favorite ? "favorite" : "favorite_border"
               }}</mat-icon>
             </button>
             <button
@@ -127,7 +129,7 @@
         <div class="message-field">
           <label>Message</label>
           <mat-form-field>
-            <textarea matInput placeholder="enter message"></textarea>
+            <textarea matInput [placeholder]="'Break the ice, send message to ' +userDetails.name"></textarea>
           </mat-form-field>
           <button mat-raised-button color="primary">Send</button>
         </div>

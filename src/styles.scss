@@ -36,5 +36,12 @@ body {
   .mat-mdc-text-field-wrapper {
     border: 1px solid #E4E4E4;
     background-color: transparent;
+    border-radius: 0.75rem;
   }
 }
+
+.mat-mdc-checkbox {
+  label {
+    font-weight: bold !important;
+  }
+ }
