@@ -43,7 +43,7 @@ export class ProfileListingComponent implements OnInit {
       if (result) {
         this.profileList = result.profiles;
         for (let profile of this.profileList) {
-          if (this.favoriteList.includes(profile.id)) {
+          if (this.favoriteList?.includes(profile.id)) {
             profile['is_favorite'] = true;
           }
         }
